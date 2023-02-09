@@ -13,17 +13,18 @@ body {
     background-color: #d9dcd6;
 }
 
+/* Header contains two sections [title + nav], title includes span element for alternate text color on "seo". */
+
 header {
     width: 100%;
     display: flex;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #2a607c;
     color: #ffffff;
 }
 
 header h1 {
     margin: 0;
-    font-family: inherit;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 20px;
     font-size: 48px;
     align-content: center;
@@ -35,12 +36,13 @@ header h1 #seo {
     color: #d9dcd6;
 }
 
+/* Nav box and link properties */
+
 header nav {
+    flex: 2;
+    font-size: 20px;
     display: flex;
     justify-content: flex-end;
-    flex: 2;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
 }
 
 header nav ul {
@@ -53,17 +55,36 @@ header nav ul li {
     padding: 15px;
 }
 
-a {
+header a {
     color: #ffffff;
     text-decoration: none;
 }
+
+header a:hover {
+    color: aqua;
+}
+
+/* End nav section */
+
+/* End header section */
 
 p {
     font-size: 16px;
 }
 
+/**
+ * Main article content
+ * 
+ * This creates a container for multiple section containers, each with a text section and an img that can
+ * be moved to either the left or right side of the text using '.align-left' or '.align-right' respectively.
+ * Sections are stacked vertically on top of each other, then horizontally within each section. The text section
+ * is stacked vertically.
+ * 
+ * The main section is set to a default 80% (flex: 4) to leave room for the sidebar, which is set to 20% (flex: 1).
+ */
+
 main {
-    width: 80%;
+    flex: 4;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -78,13 +99,10 @@ main section {
     color: #ffffff;
 }
 
-.align-left img {
-    order: 0;
-    margin-right: 20px;
-}
-.align-right img {
-    order: 1;
-    margin-left: 20px;
+
+main section h2 {
+    margin-bottom: 20px;
+    font-size: 225%;
 }
 
 main section img {
@@ -92,13 +110,29 @@ main section img {
     width: fit-content;
 }
 
-main section h2 {
-    margin-bottom: 20px;
-    font-size: 225%;
+.align-left {
+    order: 0;
+    margin-right: 20px;
 }
 
+.align-right {
+    order: 1;
+    margin-left: 20px;
+}
+
+/* End main section */
+
+/**
+ * Aside content
+ * 
+ * This creates a container for multiple sub-containers, each with a title, an image, and a text section. Sections are
+ * arranged vertically, stacked on top of one another.
+ * 
+ * The aside section is set to a default 20% (flex: 1) to accomodate the main section, which is set to 80% (flex: 4).
+ */
+
 aside {
-    width: 20%;
+    flex: 1;
     padding: 20px 20px 20px 0px;
     display: flex;
     flex-direction: column;
@@ -126,6 +160,10 @@ aside section h3 {
     text-align: center;
 }
 
+/* End Aside section */
+
+/* Footer properties */
+
 footer {
     width: 100%;
     padding: 30px;
@@ -137,6 +175,10 @@ footer {
 footer h2 {
     font-size: 20px;
 }
+
+/* End Footer section */
+
+/* Adjustments to body, main, aside, and aside images to adjust for smaller screen size */
 
 @media screen and (max-width:900px) {
     body {
@@ -160,6 +202,8 @@ footer h2 {
     }
 }
 
+/* Adjustments to header, main, and aside to respond to smallest screen sizes. */
+
 @media screen and (max-width:762px) {
     header {
         flex-direction: column;
@@ -180,12 +224,12 @@ footer h2 {
         flex-direction: column;
     }
 
-    .align-right img {
+    .align-right {
         order: 0;
         margin: 0px;
     }
 
-    .align-left img {
+    .align-left {
         margin: 0px;
     }
 
