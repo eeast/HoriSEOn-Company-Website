@@ -1,4 +1,4 @@
-# Challenge 1 - Horiseon Website
+# Horiseon Company Website
 
 ## Description
 
